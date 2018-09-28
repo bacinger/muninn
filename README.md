@@ -4,4 +4,12 @@ Muninn is simple JavaScript script for tracking web page views. The script was f
 
 Muninn collect minimum information for simple analytics. It consists out of a small JavaScript (`muninn.js`) that gathers the data, and on the back-end is AWS Lambda (`index.js`). 
 
-The whole idea of this project is to take the tracking and data into your own hands, and to move away from the big tracking companies. For personal use on a non-popular website, I hope the Amazon free tier will be sufficient.
+The whole idea of this project is to take the tracking and data into your own hands, and to move away from the big trucking companies. The second motivation is to learn new technologies, primarily serverless back-end services. For personal use on a non-popular website, I hope the Amazon free tier will be sufficient.
+
+## Instalation
+
+On the front-end, just put these two files somewhere, and add the following two lines at the end of your `index.html` file:
+```
+<script src="path_to/muninn.js"></script> 
+<noscript><img src="path_to/muninn.gif" alt=""></noscript>
+```
