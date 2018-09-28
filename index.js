@@ -60,10 +60,13 @@ exports.handler = function(event, context, callback) {
         }
         saveToDynamodb(item);
         var responseBody = {
-            error: false
+            message: "Successful"
         };
         response = {
             statusCode: responseCode,
+            headers: {
+                'Access-Control-Allow-Origin' : "*" // Required for CORS support to work
+            },
             body: JSON.stringify(responseBody)
         };
     }
@@ -78,11 +81,12 @@ exports.handler = function(event, context, callback) {
         saveToDynamodb(item); 
         var content = '<img src="https://svemir.co/space-pig.png" alt="">';
         response = {
-            'statusCode': 200,
-            'body': content,
-            'headers': {
+            statusCode: responseCode,
+            headers: {
                 'Content-Type': 'text/html',
-            }
+                'Access-Control-Allow-Origin' : "*" // Required for CORS support to work
+            },
+            body: content
         };
     }
     
