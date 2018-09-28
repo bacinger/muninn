@@ -10,7 +10,7 @@ exports.handler = function(event, context, callback) {
     let width;
     let height;
     let response;
-    let ts = Math.floor(new Date().getTime());
+    let ts = new Date().getTime();
     let responseCode = 200;
     console.log('request: ' + JSON.stringify(event));
     
