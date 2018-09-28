@@ -1,6 +1,4 @@
-// We use https://jscompress.com to compress our script so you can test
-// if this script is indeed the same script as the minified version we
-// published on https://cdn.simpleanalytics.io/hello.js
+// We use https://jscompress.com to compress the script for production
 
 (function(window,d){
   try {
@@ -40,7 +38,7 @@
       if (window.innerHeight) data.height = window.innerHeight;
 
       var request = new XMLHttpRequest();
-      request.open('POST', d + '/post', true);
+      request.open('POST', d, true);
 
       // We use content type text/plain here because we don't want to send an
       // pre-flight OPTIONS request
