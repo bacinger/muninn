@@ -79,6 +79,7 @@ exports.handler = function(event, context, callback) {
             'source': {'S': 'noscript'}
         };
         saveToDynamodb(item); 
+        // https://stackoverflow.com/questions/35804042/aws-api-gateway-and-lambda-to-return-image
         var content = '<img src="https://svemir.co/space-pig.png" alt="">';
         response = {
             statusCode: responseCode,

@@ -76,4 +76,4 @@
     img.alt = '';
     if (bodies[0]) bodies[0].appendChild(img);
   }
-})(window, 'https://api.svemir.co');
+})(window, 'https://url.to.your.lambda.com/api');
