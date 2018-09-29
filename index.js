@@ -14,7 +14,7 @@ exports.handler = function(event, context, callback) {
     let ts = new Date().getTime();
     let responseCode = 200;
     console.log('request: ' + JSON.stringify(event));
-    
+
     // We use proxy to store host
     if (event.pathParameters !== null && event.pathParameters !== undefined) {
         if (event.pathParameters.proxy !== undefined && 
@@ -92,6 +92,7 @@ exports.handler = function(event, context, callback) {
             'source': {'S': 'noscript'}
         };
         saveToDynamodb(item); 
+        // https://stackoverflow.com/questions/35804042/aws-api-gateway-and-lambda-to-return-image
         var content = '<img src="https://svemir.co/space-pig.png" alt="">';
         response = {
             statusCode: responseCode,
