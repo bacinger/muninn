@@ -4,6 +4,7 @@ const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 
 exports.handler = function(event, context, callback) {
     let host;
+    let ip;
     let source;
     let url;
     let ua;
@@ -23,6 +24,15 @@ exports.handler = function(event, context, callback) {
         }
     }
 
+    // Getting the IP address form the header
+    if (event.headers !== null && event.headers !== undefined) {
+        if (event.headers['X-Forwarded-For'] !== undefined && event.headers['X-Forwarded-For'] !== null && event.headers['X-Forwarded-For'] !== "") {
+            ip = event.headers['X-Forwarded-For'];
+            console.log('IP: ' + event.headers['X-Forwarded-For']);
+        }
+    }
+
+    // Getting the rest of the data from the body JSON
     if (event.body !== null && event.body !== undefined) {
         // POST
         let body = JSON.parse(event.body);
@@ -41,6 +51,7 @@ exports.handler = function(event, context, callback) {
         if (source) {
             item = {
                 'id': {'N': generateRowId(4).toString()},
+                'ip': {'S': ip.toString()},
                 'date': {'S': ts.toString()},
                 'host': {'S': host},
                 'source': {'S': source},
@@ -53,6 +64,7 @@ exports.handler = function(event, context, callback) {
         else {
             item = {
                 'id': {'N': generateRowId(4).toString()},
+                'ip': {'S': ip.toString()},
                 'date': {'S': ts.toString()},
                 'host': {'S': host},
                 'source': {'S': 'noscript'}
@@ -74,12 +86,12 @@ exports.handler = function(event, context, callback) {
         // GET
         let item = {
             'id': {'N': generateRowId(4).toString()},
+            'ip': {'S': ip.toString()},
             'date': {'S': ts.toString()},
             'host': {'S': host},
             'source': {'S': 'noscript'}
         };
         saveToDynamodb(item); 
-        // https://stackoverflow.com/questions/35804042/aws-api-gateway-and-lambda-to-return-image
         var content = '<img src="https://svemir.co/space-pig.png" alt="">';
         response = {
             statusCode: responseCode,
