@@ -70,9 +70,9 @@
     if (console && console.error) console.error(e);
     var bodies = document.getElementsByTagName('body');
     var img = new Image();
-    var url = d + '/muninn.gif';
-    if (e && e.message) url = url + '?error=' + encodeURIComponent(e.message);
-    img.src = url;
+    // Error logging will come in future versions
+    //if (e && e.message) var url = d + '?error=' + encodeURIComponent(e.message);
+    img.src = d;
     img.alt = '';
     if (bodies[0]) bodies[0].appendChild(img);
   }
