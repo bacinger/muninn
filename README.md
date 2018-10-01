@@ -1,6 +1,6 @@
 # Muninn
 
-Muninn is simple JavaScript script for tracking web page views. The script was forked from [cdn.simpleanalytics.io](https://github.com/bacinger/cdn.simpleanalytics.io).
+<img style="float: right;" alt="Muninn" src="muninn.png"> Muninn is simple JavaScript script for tracking web page views. The script was forked from [cdn.simpleanalytics.io](https://github.com/bacinger/cdn.simpleanalytics.io).
 
 Muninn collect minimum information for simple analytics. It consists out of a small JavaScript (`muninn.js`) that gathers the data, and on the back-end is AWS Lambda (`index.js`). 
 
