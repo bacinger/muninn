@@ -11,5 +11,5 @@ The whole idea of this project is to take the tracking and data into your own ha
 Just put these two files with your web application, and add the following two lines at the end of your `index.html` file:
 ```
 <script type="text/javascript" src="path_to/muninn.js"></script> 
-<noscript><img src="path_to/muninn.gif" alt=""></noscript>
+<noscript><img src="https://url.to.your.lambda.com/api" alt=""></noscript>
 ```
