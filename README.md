@@ -8,8 +8,14 @@ The whole idea of this project is to take the tracking and data into your own ha
 
 ## Instalation
 
-Just put these two files with your web application, and add the following two lines at the end of your `index.html` file:
+## Front-end
+
+Just place the `muninn.js` file somewhere within your web application, and add the following two lines at the end of your `index.html` file:
 ```
 <script type="text/javascript" src="path_to/muninn.js"></script> 
 <noscript><img src="https://url.to.your.lambda.com/api" alt=""></noscript>
 ```
+
+### Back-end
+
+On the "back-end", you need to setup AWS API and use `index.js` to create Lambda function.
